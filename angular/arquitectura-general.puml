@@ -1,0 +1,19 @@
+@startuml
+
+title "Arquitectura Angular"
+
+component Main
+component NgModule <<Package>> 
+component C as "Component" <<View>>
+component Injector {
+    component Service <<Controllers>>
+}
+component Model <<Model>> 
+
+Main --> NgModule
+NgModule *--> "1..*" C
+Injector .up.> C : Inject service
+C -down-> Service
+Service ..> Model
+
+@enduml

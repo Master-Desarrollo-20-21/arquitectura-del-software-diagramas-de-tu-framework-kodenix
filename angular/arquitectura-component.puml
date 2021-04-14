@@ -1,0 +1,38 @@
+@startuml
+
+title "Arquitectura Angular"
+
+class Main
+
+component Module <<Package>> {
+    class NgModule
+} 
+
+component Component <<View>> {
+    class ComponentL <<logic>>
+    class Css <<style>>
+    class Template <<html>>
+    ComponentL -right-> Css
+    ComponentL -down-> Template : Propiedades
+    ComponentL <.down. Template : Evento
+
+    note top of ComponentL 
+        Metadata:
+            -template: enlace / integrado
+            -css: enlace / integrado
+    end note
+}
+
+component Injector <<Controllers>> {
+    class Service    
+}
+
+component Model {
+    
+}
+
+Main --> NgModule
+NgModule *--> Component
+Component <.up. Service : Inject
+
+@enduml
