@@ -1,0 +1,16 @@
+@startuml
+title "Diagramna de secuencia de Arquitectura Angular"
+
+actor User
+boundary "Component" as View
+control "Service" as Controller
+entity Model
+
+User -> View 
+View -> Controller : get/set()
+Controller -> Model : get/set()
+Controller <- Model
+View <- Controller
+View <-- Model
+
+@enduml

@@ -10,10 +10,12 @@ component Injector {
 }
 component Model <<Model>> 
 
+NgModule --> "0..*" NgModule
 Main --> NgModule
 NgModule *--> "1..*" C
 Injector .up.> C : Inject service
 C -down-> Service
 Service ..> Model
+C ..> Model
 
 @enduml

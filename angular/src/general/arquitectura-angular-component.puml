@@ -1,0 +1,25 @@
+@startuml
+
+title "Arquitectura Angular Componente"
+
+component Component <<View>> {
+    class Presenter <<logic>>
+    class Css <<style>>
+    class Template <<html>>
+    
+    Presenter -left-> Css
+    Presenter <-down-> Template : Data Binding
+
+    note top of Presenter 
+        Metadata:
+            -template: enlace / integrado
+            -css: enlace / integrado
+    end note
+
+    
+}
+
+class Model <<service...>>
+Presenter -right-> Model
+
+@enduml
