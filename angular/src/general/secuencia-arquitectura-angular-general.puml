@@ -1,5 +1,5 @@
 @startuml
-title "Diagramna de secuencia de Arquitectura Angular"
+title "Diagramna de secuencia de Arquitectura Angular General"
 
 actor User
 boundary "Component" as View

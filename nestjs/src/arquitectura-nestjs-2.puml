@@ -1,0 +1,15 @@
+@startuml
+
+title "Arquitectura Nestjs Segunda"
+
+class Controller
+class Service
+class Model
+class Dto
+
+Controller --> Service
+Service --> Model
+Service --> Dto
+Controller ..> Dto
+
+@enduml
