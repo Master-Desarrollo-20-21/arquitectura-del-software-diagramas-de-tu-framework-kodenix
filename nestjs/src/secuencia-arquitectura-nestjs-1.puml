@@ -1,21 +1,18 @@
 @startuml
-title "Diagramna de secuencia de Arquitectura NestJs 1"
+title "Diagramna de secuencia de Arquitectura NestJs"
 
 actor User
 control "Controller" as Controller
 control "Service" as Service
 database Repository
 entity Model
-entity Dto
 
 User -> Controller : GET request
 Controller -> Service : getAll
 Service -> Repository : getAll
 Repository -> Model : get
 Repository -> Service : response Model
-Service -> Model : createDto
-Model -> Dto : MapTo 
-Model -> Service : response Model Mapped to Dto
+Service -> Service : createDto(Model)
 Service -> Controller: response Dto
 User <-- Controller : response (Dto)
 

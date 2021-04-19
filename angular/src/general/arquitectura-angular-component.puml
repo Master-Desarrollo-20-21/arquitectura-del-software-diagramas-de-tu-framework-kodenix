@@ -2,15 +2,15 @@
 
 title "Arquitectura Angular Componente"
 
-component Component <<View>> {
-    class Presenter <<logic>>
-    class Css <<style>>
-    class Template <<html>>
+component ViewComponent <<MVP-VM>> {
+    class Component <<presenter>>
+    class Css <<¿model?>>
+    class HtmlTemplate <<view>>
     
-    Presenter -left-> Css
-    Presenter <-down-> Template : Data Binding
+    Component -right-> Css
+    Component <-down-> HtmlTemplate : Data Binding
 
-    note top of Presenter 
+    note top of Component 
         Metadata:
             -template: enlace / integrado
             -css: enlace / integrado
@@ -19,7 +19,7 @@ component Component <<View>> {
     
 }
 
-class Model <<service...>>
-Presenter -right-> Model
+class Service <<model>>
+Component -right-> Service
 
 @enduml

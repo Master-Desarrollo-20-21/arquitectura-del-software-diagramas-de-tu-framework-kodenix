@@ -2,15 +2,16 @@
 title "Diagramna de secuencia de Arquitectura Angular General"
 
 actor User
+control GETRoute
 boundary "Component" as View
 control "Service" as Controller
 entity Model
 
-User -> View 
+User -> GETRoute 
+GETRoute -> View
 View -> Controller : get/set()
 Controller -> Model : get/set()
-Controller <- Model
-View <- Controller
-View <-- Model
+View <- Controller : return Model/Result
+User <-- View : show
 
 @enduml

@@ -2,12 +2,14 @@
 
 title "Arquitectura Nestjs"
 
-class Controller
-class Service
+class Controller <<controller>>
+class Service <<controller>>
 class Model
+class Dto
 
 Controller --> Service
 Service --> Model
-Controller ..> Model
+Service --> Dto
+Controller ..> Dto
 
 @enduml
